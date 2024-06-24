@@ -1,11 +1,11 @@
-package view
+package parser
 
 import (
 	"fmt"
 	"strings"
 
-	"github.com/goptos/parser/ast"
-	"github.com/goptos/parser/lexer"
+	"github.com/goptos/ast"
+	"github.com/goptos/lexer"
 	"github.com/goptos/utils"
 )
 
