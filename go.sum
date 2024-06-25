@@ -1,6 +1,6 @@
-github.com/goptos/ast v0.0.0 h1:EQiabntGzpyYcfqmm0b5wmRK8w3e159aEwDN5THhfFA=
-github.com/goptos/ast v0.0.0/go.mod h1:YqVtepKE40WjybKJqh6WDrWE2Uz/domnuuHGPXicHjk=
-github.com/goptos/lexer v0.0.0 h1:tv41Y/eJQj8wVaAXBsbixB1cxz649aHxHkT4Ra2zz9E=
-github.com/goptos/lexer v0.0.0/go.mod h1:ge7aR9yLfiH2a/4FYo+xhpm3ldAbZLOmkn3BIoXgos8=
-github.com/goptos/utils v0.0.0 h1:JLNUIp6PqLnmw0Tj5hTY4jXkRiv9qSGgLolhp5j/qRg=
-github.com/goptos/utils v0.0.0/go.mod h1:OkMb4LeW1wjYcxDw5HBkzt1H/2njzbtTRChD0FXwm3g=
+github.com/goptos/ast v0.1.0 h1:Zu7ROQKADSxTaTOknzOhjWizHx3qZDwxFrUHIEvs1m8=
+github.com/goptos/ast v0.1.0/go.mod h1:wJzHSzJ+LsIhLWSQozJ+ddLvtZsPji3DLUhwzHbnCck=
+github.com/goptos/lexer v0.1.0 h1:QfUf0b0427B5EFBzQowdr0eoafFktOFtHXIFDJOaOAs=
+github.com/goptos/lexer v0.1.0/go.mod h1:YIqotDeeRQn5AiIH9g1AxJP1Bq/B3NoR0RqTSeFyum4=
+github.com/goptos/utils v0.1.0 h1:2hqoJhY8uRWOQpIy7OeQXvpobfy73ZVf0MwVGSqjq9s=
+github.com/goptos/utils v0.1.0/go.mod h1:OkMb4LeW1wjYcxDw5HBkzt1H/2njzbtTRChD0FXwm3g=
