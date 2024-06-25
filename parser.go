@@ -9,6 +9,8 @@ import (
 	"github.com/goptos/utils"
 )
 
+var verbose = (*utils.Verbose).New(nil)
+
 const (
 	xHtmlElem     int = 0
 	HtmlEventAttr int = 1
@@ -24,7 +26,7 @@ type Token = lexer.Token
 func View(source string) (*string, error) {
 	var document, err = (*Ast).New(nil, source)
 	if err != nil {
-		utils.Debug("%s\n", err)
+		verbose.Printf(1, "%s\n", err)
 		return nil, err
 	}
 	var statements []string = make([]string, 0)
@@ -33,7 +35,7 @@ func View(source string) (*string, error) {
 		`<div>` => `(*Elem).New(nil, "div")`
 	*/
 	document.ElemNodeProcessor = func(node ast.ElemNode) {
-		utils.Debug("%d\t%s\t%s\n",
+		verbose.Printf(1, "%d\t%s\t%s\n",
 			index,
 			lexer.OpenTag,
 			node.Name)
@@ -82,7 +84,7 @@ func View(source string) (*string, error) {
 		`<Button />` => `.Child(Button.View(cx))`
 	*/
 	document.CompNodeNodeProcessor = func(node ast.CompNode) {
-		utils.Debug("%d\t%s\t%s\t%s\n",
+		verbose.Printf(1, "%d\t%s\t%s\t%s\n",
 			index,
 			lexer.Comp,
 			node.Name,
@@ -103,7 +105,7 @@ func View(source string) (*string, error) {
 		`Hello` => `Text("Hello")`
 	*/
 	document.TextNodeProcessor = func(node ast.TextNode) {
-		utils.Debug("%d\t%s\t%s\n",
+		verbose.Printf(1, "%d\t%s\t%s\n",
 			index,
 			lexer.Text,
 			node.Data)
@@ -117,7 +119,7 @@ func View(source string) (*string, error) {
 		})
 	*/
 	document.DynTextNodeProcessor = func(node ast.DynTextNode) {
-		utils.Debug("%d\t%s\t%s\n",
+		verbose.Printf(1, "%d\t%s\t%s\n",
 			index,
 			lexer.Text,
 			node.Effect)
@@ -129,7 +131,7 @@ func View(source string) (*string, error) {
 		Attr("id", "sub-button")
 	*/
 	document.AttrNodeProcessor = func(node ast.AttrNode) {
-		utils.Debug("%d\t%s\t%s\t%s\t%s\n",
+		verbose.Printf(1, "%d\t%s\t%s\t%s\t%s\n",
 			index,
 			lexer.Attr,
 			node.Name,
@@ -149,7 +151,7 @@ func View(source string) (*string, error) {
 		On("click", func(Event) {} )
 	*/
 	document.EventAttrNodeProcessor = func(node ast.EventAttrNode) {
-		utils.Debug("%d\t%s\t%s\t%s\t%s\t%s\n",
+		verbose.Printf(1, "%d\t%s\t%s\t%s\t%s\t%s\n",
 			index,
 			lexer.Attr,
 			node.Name,
@@ -165,7 +167,7 @@ func View(source string) (*string, error) {
 		</...>
 	*/
 	document.EndNodeProcessor = func(node ast.EndNode) {
-		utils.Debug("%d\t%s\t%s\n",
+		verbose.Printf(1, "%d\t%s\t%s\n",
 			index,
 			lexer.CloseTag,
 			node.Name)
@@ -198,6 +200,6 @@ func View(source string) (*string, error) {
 		}
 	}
 	document.Process()
-	utils.Debug("\n\n%s\n\n", statements[0])
+	verbose.Printf(1, "\n\n%s\n\n", statements[0])
 	return &statements[0], nil
 }
